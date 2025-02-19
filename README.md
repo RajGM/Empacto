@@ -36,5 +36,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 
-npx prisma migrate dev --name init
-npm run queries# Empacto
+**How We Approached the Challenge**  
+We built a full-stack Next.js application backed by a PostgreSQL database and Prisma, ensuring type safety from schema to frontend. On the frontend, we used Tailwind CSS and ShadCN UI components for a modern, responsive design. The API and database layers were structured to cleanly handle user input—like company name, industry, and goals—and store generated outlines alongside the original submissions. This approach let us quickly spin up a polished MVP while leaving room for iterative improvements and scalability.
+
+**How We Ensured Quality AI Output**  
+We employed clear, well-structured prompts using a JSON schema to guide the AI model’s responses. By explicitly defining the desired sections and format (for instance, “introduction,” “key topics,” “action steps,” etc.), we reduced ambiguity and ensured consistently parseable results on the frontend. Storing the full input-output record in the database also allowed us to refine or regenerate outputs if needed, providing an iterative feedback loop to improve the model’s performance over time.
