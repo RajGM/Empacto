@@ -13,6 +13,6 @@ model Submission {
   industry        String
   goals           String
   context         String
-  trainingOutline String
+  trainingOutline Json
   createdAt       DateTime @default(now())
 }
