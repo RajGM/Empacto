@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import TrainingForm from '@/components/TrainingForm';
-import type { TrainingOutline } from '@/types/training';
+import type { TrainingOutline } from '@/lib/schema';
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
