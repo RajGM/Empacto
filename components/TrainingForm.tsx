@@ -1,25 +1,22 @@
-'use client'
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
+import { IndustryCombobox } from "@/components/ui/custom-build/IndustryCombobox";
 
 interface TrainingFormProps {
-  onSubmit: (data: { companyName: string; industry: string; goals: string; context: string }) => void;
+  onSubmit: (data: {
+    companyName: string;
+    industry: string;
+    goals: string;
+    context: string;
+  }) => void;
   loading: boolean;
 }
 
-const industries = [
-  'Manufacturing',
-  'Technology',
-  'Finance',
-  'Healthcare',
-  'Retail',
-  // ... Add more as needed
-];
-
 export default function TrainingForm({ onSubmit, loading }: TrainingFormProps) {
-  const [companyName, setCompanyName] = useState('');
-  const [industry, setIndustry] = useState('');
-  const [goals, setGoals] = useState('');
-  const [context, setContext] = useState('');
+  const [companyName, setCompanyName] = useState("");
+  const [industry, setIndustry] = useState("");
+  const [goals, setGoals] = useState("");
+  const [context, setContext] = useState("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -39,25 +36,19 @@ export default function TrainingForm({ onSubmit, loading }: TrainingFormProps) {
         />
       </div>
 
+      {/* Industry */}
       <div>
-        <label className="block text-sm font-medium">Industry</label>
-        <select
-          className="mt-1 block w-full border rounded px-3 py-2"
+        <label className="block text-sm font-medium mb-1">Industry</label>
+        <IndustryCombobox
           value={industry}
-          onChange={(e) => setIndustry(e.target.value)}
-          required
-        >
-          <option value="">Select industry</option>
-          {industries.map((ind) => (
-            <option key={ind} value={ind}>
-              {ind}
-            </option>
-          ))}
-        </select>
+          onChange={(val) => setIndustry(val)}
+        />
       </div>
 
       <div>
-        <label className="block text-sm font-medium">Sustainability Goals</label>
+        <label className="block text-sm font-medium">
+          Sustainability Goals
+        </label>
         <textarea
           className="mt-1 block w-full border rounded px-3 py-2"
           value={goals}
@@ -81,7 +72,7 @@ export default function TrainingForm({ onSubmit, loading }: TrainingFormProps) {
         className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
         disabled={loading}
       >
-        {loading ? 'Generating...' : 'Generate Training Outline'}
+        {loading ? "Generating..." : "Generate Training Outline"}
       </button>
     </form>
   );
